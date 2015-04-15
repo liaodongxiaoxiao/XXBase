@@ -17,7 +17,7 @@ public class XXToast {
     }
 
     /**
-     * 短时间显示Toast
+     *
      *
      * @param context
      * @param message
@@ -27,7 +27,7 @@ public class XXToast {
     }
 
     /**
-     * 长时间显示Toast
+     *
      *
      * @param context
      * @param message
@@ -37,7 +37,7 @@ public class XXToast {
     }
 
     /**
-     * 长时间显示Toast
+     *
      *
      * @param context
      * @param message
@@ -47,7 +47,7 @@ public class XXToast {
     }
 
     /**
-     * 自定义显示Toast时间
+     *
      *
      * @param context
      * @param message
@@ -58,7 +58,7 @@ public class XXToast {
     }
 
     /**
-     * 自定义显示Toast时间
+     *
      *
      * @param context
      * @param message

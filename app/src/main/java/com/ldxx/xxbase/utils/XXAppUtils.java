@@ -16,7 +16,7 @@ public class XXAppUtils {
     }
 
     /**
-     * 获取应用程序名称
+     *
      */
     public static String getAppName(Context context) {
         try {
@@ -32,10 +32,9 @@ public class XXAppUtils {
     }
 
     /**
-     * [获取应用程序版本名称信息]
      *
      * @param context
-     * @return 当前应用的版本名称
+     * @return
      */
     public static String getVersionName(Context context) {
         try {

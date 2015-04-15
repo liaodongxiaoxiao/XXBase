@@ -9,10 +9,9 @@ import android.widget.EditText;
  */
 public class XXKeyBoardUtils {
     /**
-     * ╢Р©╗хМ╪Эел
      *
-     * @param mEditText йДхК©Р
-     * @param mContext  иообнд
+     * @param mEditText
+     * @param mContext
      */
     public static void openKeybord(EditText mEditText, Context mContext) {
         InputMethodManager imm = (InputMethodManager) mContext
@@ -23,10 +22,10 @@ public class XXKeyBoardUtils {
     }
 
     /**
-     * ╧ь╠ухМ╪Эел
+     * О©╫ь╠О©╫О©╫О©╫О©╫О©╫О©╫
      *
-     * @param mEditText йДхК©Р
-     * @param mContext  иообнд
+     * @param mEditText О©╫О©╫О©╫О©╫О©╫
+     * @param mContext  О©╫О©╫О©╫О©╫О©╫О©╫
      */
     public static void closeKeybord(EditText mEditText, Context mContext) {
         InputMethodManager imm = (InputMethodManager) mContext

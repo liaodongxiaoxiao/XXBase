@@ -11,8 +11,8 @@ import android.widget.AdapterView;
 import android.widget.GridView;
 
 import com.ldxx.xxbase.activity.BaseActivity;
+import com.ldxx.xxbase.demo.activity.DemoBActivity;
 import com.ldxx.xxbase.demo.adapter.ColorAdapter;
-import com.ldxx.xxbase.demo.adapter.activity.DemoBActivity;
 import com.ldxx.xxbase.utils.CommonUtils;
 
 import java.util.ArrayList;

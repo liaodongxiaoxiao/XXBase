@@ -12,12 +12,6 @@ import android.content.SharedPreferences;
  */
 public class XXSharedPreferencesUtils {
     /**
-     * 保存在手机里面的文件名
-     */
-    //public static final String FILE_NAME = XXAppUtils.getAppName()+"_data";
-
-    /**
-     * 保存数据的方法，我们需要拿到保存数据的具体类型，然后根据类型调用不同的保存方法
      *
      * @param context
      * @param key
@@ -47,7 +41,6 @@ public class XXSharedPreferencesUtils {
     }
 
     /**
-     * 得到保存数据的方法，我们根据默认值得到保存的数据的具体类型，然后调用相对于的方法获取值
      *
      * @param context
      * @param key
@@ -75,7 +68,6 @@ public class XXSharedPreferencesUtils {
     }
 
     /**
-     * 移除某个key值已经对应的值
      *
      * @param context
      * @param key
@@ -89,7 +81,6 @@ public class XXSharedPreferencesUtils {
     }
 
     /**
-     * 清除所有数据
      *
      * @param context
      */
@@ -102,7 +93,6 @@ public class XXSharedPreferencesUtils {
     }
 
     /**
-     * 查询某个key是否已经存在
      *
      * @param context
      * @param key
@@ -115,7 +105,6 @@ public class XXSharedPreferencesUtils {
     }
 
     /**
-     * 返回所有的键值对
      *
      * @param context
      * @return
@@ -127,15 +116,12 @@ public class XXSharedPreferencesUtils {
     }
 
     /**
-     * 创建一个解决SharedPreferencesCompat.apply方法的一个兼容类
      *
-     * @author zhy
      */
     private static class SharedPreferencesCompat {
         private static final Method sApplyMethod = findApplyMethod();
 
         /**
-         * 反射查找apply的方法
          *
          * @return
          */
@@ -151,7 +137,6 @@ public class XXSharedPreferencesUtils {
         }
 
         /**
-         * 如果找到则使用apply执行，否则使用commit
          *
          * @param editor
          */

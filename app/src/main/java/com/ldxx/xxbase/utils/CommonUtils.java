@@ -8,10 +8,7 @@ import java.util.Random;
 public class CommonUtils {
 
 
-    /**
-     * 获取十六进制的颜色代码.例如  "#6E36B4" , For HTML ,
-     * @return String
-     */
+
     public static String getRandColorCode(){
         String r,g,b;
         Random random = new Random();

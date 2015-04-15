@@ -1,0 +1,45 @@
+<!--Demo主布局-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include layout="@layout/xx_common_actionbar" />
+
+    <android.support.v4.widget.DrawerLayout
+        android:id="@+id/drawer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <!-- 内容界面 -->
+        <FrameLayout
+            android:id="@+id/demo_content_container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <!-- 侧滑菜单内容 -->
+
+        <RelativeLayout
+            android:id="@+id/demo_drawer_view"
+            android:layout_gravity="left"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+            <!--android:listSelector="@drawable/menu_item_selector"-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/xx_write">
+                <!--android:listSelector="@drawable/menu_selector"-->
+                <ListView
+                    android:id="@+id/menu_list"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:divider="#ef1414"
+                    android:dividerHeight="1dp" />
+            </LinearLayout>
+        </RelativeLayout>
+    </android.support.v4.widget.DrawerLayout>
+
+</LinearLayout>

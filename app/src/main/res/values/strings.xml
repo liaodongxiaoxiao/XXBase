@@ -4,4 +4,11 @@
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
     <string name="title_activity_demo_b">DemoBActivity</string>
+    <string name="title_activity_demo_main">DemoMainActivity</string>
+    <string name="title_home">首页</string>
+    <string name="drawer_close">关闭</string>
+
+<!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="drawer_open">打开</string>
 </resources>
