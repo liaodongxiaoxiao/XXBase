@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+   <!-- <style name="AppTheme" parent="android:Theme.Material.Light.DarkActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="android:windowNoTitle">true</item>
+        &lt;!&ndash; toolbar/actionbar color &ndash;&gt;
+        <item name="colorPrimary">@color/color_primary</item>
+        &lt;!&ndash; &ndash;&gt;
+        <item name="colorPrimaryDark">@color/color_primary_dark</item>
+        <item name="colorAccent">@color/color_accent</item>
+    </style>-->
+</resources>
