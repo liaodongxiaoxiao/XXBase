@@ -74,14 +74,25 @@ public class XXImageVIew extends View {
         int right = getPaddingRight();
         int dW = w - getPaddingLeft() - getPaddingRight();
         int dH = h - getPaddingBottom() - getPaddingTop();
+        int bW = bitmap.getWidth();
+        int bH = bitmap.getHeight();
 
         //1.先判断 图片是正方形
-        if (bitmap.getWidth() == bitmap.getHeight()) {
+        if (bW == bH) {
             //取最小值
             int value = Math.min(dW, dH);
-            scale = value * 1f / bitmap.getWidth();
+            scale = value * 1f /bH;
         } else {
             //长方形
+            if((bW>dW)&&(bH<dH)){
+                scale =dW*1f/bW;
+            }else if((bW<dW)&&(bH>dH)){
+                scale = dH*1f/bH;
+            }else if ((bW>dW)&&(bH>dH)){
+                scale = Math.max(dW*1f/bW,dH*1f/bH);
+            }else {
+                scale = Math.min(dW * 1f / bW, dH * 1f / bH);
+            }
         }
 
 
