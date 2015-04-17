@@ -5,6 +5,8 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
 
+import java.io.File;
+
 /**
  * Created by WANGZHUO on 2015/4/15.
  */
@@ -47,6 +49,10 @@ public class XXAppUtils {
             e.printStackTrace();
         }
         return null;
+    }
+
+    public static File getCatchPath(Context context){
+        return context.getExternalCacheDir();
     }
 
 }

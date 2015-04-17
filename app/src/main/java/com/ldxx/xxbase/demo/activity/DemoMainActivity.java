@@ -3,7 +3,6 @@ package com.ldxx.xxbase.demo.activity;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
 import android.view.Gravity;
@@ -29,10 +28,12 @@ public class DemoMainActivity extends BaseActivity {
 
     private ListView menuList;
     private NavigationMenuAdapter adapter;
+    private List<MenuInfo> menuData;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_demo_main);
+        menuData = getMenuData();
         mToolbar = (Toolbar) findViewById(R.id.common_actionbar);
         // toolbar.setLogo(R.drawable.ic_launcher);
         mToolbar.setTitle(R.string.title_home);// 标题的文字需在setSupportActionBar之前，不然会无效
@@ -65,7 +66,7 @@ public class DemoMainActivity extends BaseActivity {
         mDrawerToggle.syncState();
         mDrawerLayout.setDrawerListener(mDrawerToggle);
         menuList = (ListView) findViewById(R.id.menu_list);
-        adapter = new NavigationMenuAdapter(this, getMenuData());
+        adapter = new NavigationMenuAdapter(this, menuData);
         menuList.setAdapter(adapter);
         menuList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -93,7 +94,7 @@ public class DemoMainActivity extends BaseActivity {
         menuList.setSelection(0);
         FragmentManager fragmentManager = getSupportFragmentManager();
         fragmentManager.beginTransaction()
-                .replace(R.id.demo_content_container,  HomeFragment.newInstance("", ""))
+                .replace(R.id.demo_content_container, menuData.get(0).getFragment())
                 .commit();
     }
 
@@ -108,7 +109,7 @@ public class DemoMainActivity extends BaseActivity {
 
     private List<MenuInfo> getMenuData() {
         List<MenuInfo> list = new ArrayList<>();
-        list.add(new MenuInfo(R.string.title_home, R.mipmap.menu_home, HomeFragment.newInstance("", "")));
+        list.add(new MenuInfo(R.string.title_home, R.mipmap.menu_home, HomeFragment.newInstance()));
         return list;
     }
 

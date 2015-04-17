@@ -1,6 +1,7 @@
 package com.ldxx.xxbase.utils;
 
 import java.util.Random;
+import java.util.UUID;
 
 /**
  * Created by WANGZHUO on 2015/4/14.
@@ -21,5 +22,9 @@ public class CommonUtils {
         b = b.length()==1 ? "0" + b : b ;
 
         return "#"+r+g+b;
+    }
+
+    public static String getUUID(){
+        return UUID.randomUUID().toString();
     }
 }
