@@ -8,9 +8,7 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Matrix;
 import android.graphics.Paint;
-import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.View;
 
 import com.ldxx.xxbase.R;
@@ -24,7 +22,7 @@ public class XXImageVIew extends View {
     private Paint drawablePaint;
     private float left;
     private float top;
-    private float scale=1f;
+    private float scale = 1f;
 
     public XXImageVIew(Context context) {
         super(context);
@@ -81,16 +79,16 @@ public class XXImageVIew extends View {
         if (bW == bH) {
             //取最小值
             int value = Math.min(dW, dH);
-            scale = value * 1f /bH;
+            scale = value * 1f / bH;
         } else {
             //长方形
-            if((bW>dW)&&(bH<dH)){
-                scale =dW*1f/bW;
-            }else if((bW<dW)&&(bH>dH)){
-                scale = dH*1f/bH;
-            }else if ((bW>dW)&&(bH>dH)){
-                scale = Math.max(dW*1f/bW,dH*1f/bH);
-            }else {
+            if ((bW > dW) && (bH < dH)) {
+                scale = dW * 1f / bW;
+            } else if ((bW < dW) && (bH > dH)) {
+                scale = dH * 1f / bH;
+            } else if ((bW > dW) && (bH > dH)) {
+                scale = Math.max(dW * 1f / bW, dH * 1f / bH);
+            } else {
                 scale = Math.min(dW * 1f / bW, dH * 1f / bH);
             }
         }
@@ -103,8 +101,9 @@ public class XXImageVIew extends View {
         super.onDraw(canvas);
         canvas.drawColor(Color.YELLOW);
         Matrix matrix = new Matrix();
-        matrix.setScale(scale,scale);
-        matrix.setTranslate(bitmap.getHeight()/2+getPaddingTop(),bitmap.getWidth()/2+getPaddingLeft());
+
+        matrix.setTranslate(bitmap.getWidth() / 2 + left, bitmap.getHeight() / 2 + top);
+        matrix.setScale(scale, scale);
         canvas.drawBitmap(bitmap, matrix, drawablePaint);
     }
 }
