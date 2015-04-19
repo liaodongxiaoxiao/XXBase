@@ -5,5 +5,7 @@
     <color name="color_accent">#ffffff</color>
 
     <color name="xx_write">#ffffff</color>
+    <color name="xx_black">#000000</color>
+    <color name="news_title_bg">#55b3b3b3</color>
 
 </resources>

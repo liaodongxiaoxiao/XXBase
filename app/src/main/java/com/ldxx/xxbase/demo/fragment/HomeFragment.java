@@ -12,6 +12,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.ImageLoader;
@@ -38,9 +40,12 @@ public class HomeFragment extends Fragment {
     private List<NewsInfo> data = new ArrayList<>();
     private ImageLoader mImageLoader;
     private ImageLoader.ImageListener listener;
+    private TextView newsTitle;
+    private LinearLayout group;
 
     //将图片装载到数组中
-    ImageView[] imgS = new ImageView[5];
+    private ImageView[] imgS = new ImageView[5];
+    private ImageView[] backImages = new ImageView[5];
 
 
     /**
@@ -66,10 +71,13 @@ public class HomeFragment extends Fragment {
         mImageLoader = new ImageLoader(mQueue, new BitmapCache());
 
         ImageView imageView;
+
         for (int i = 0; i < 5; i++) {
             imageView = new ImageView(getActivity());
             imgS[i] = imageView;
-            imageView.setScaleType(ImageView.ScaleType.FIT_CENTER);
+            imageView.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
+
+
         }
         //加载本地数据
         loadData();
@@ -95,16 +103,39 @@ public class HomeFragment extends Fragment {
         View v = inflater.inflate(R.layout.fragment_home, container, false);
         viewPager = (ViewPager) v.findViewById(R.id.main_pager);
         viewPager.setAdapter(new NewsPageAdapter());
+        viewPager.setOnPageChangeListener(new GuidePageChangeListener());
+        group = (LinearLayout) v.findViewById(R.id.viewGroup);
+        ImageView b;
+        for (int i=0;i<data.size();i++){
+            b = new ImageView(getActivity());
+            b.setLayoutParams(new ViewGroup.LayoutParams(20, 20));
+            b.setPadding(5, 5, 5, 5);
+            backImages[i] = b;
+            if (i == 0) {
+                backImages[i]
+                        .setBackgroundResource(R.mipmap.banner_dian_focus);
+            } else {
+                backImages[i]
+                        .setBackgroundResource(R.mipmap.banner_dian_blur);
+            }
+            group.addView(backImages[i]);
+        }
+        newsTitle = (TextView) v.findViewById(R.id.news_title);
+        viewPager.setCurrentItem(0);
+        newsTitle.setText(data.get(0).getTitle());
         return v;
     }
 
+    /**
+     * 数据加载成功接收器
+     */
     public class DataLoadedReceiver extends BroadcastReceiver {
         public DataLoadedReceiver() {
         }
 
         @Override
         public void onReceive(Context context, Intent intent) {
-            XXToast.showShort(getActivity(), "数据加载成功...");
+            XXToast.showShort(getActivity(), R.string.load_data_succes);
         }
     }
 
@@ -143,7 +174,39 @@ public class HomeFragment extends Fragment {
             NewsInfo news = data.get(position);
             mImageLoader.get(news.getImage_src(), listener);
             ((ViewPager) container).addView(imageView, 0);
+            newsTitle.setText(news.getTitle());
             return imgS[position];
+        }
+
+    }
+
+    private final class GuidePageChangeListener implements ViewPager.OnPageChangeListener {
+
+        @Override
+        public void onPageScrollStateChanged(int arg0) {
+
+        }
+
+        @Override
+        public void onPageScrolled(int arg0, float arg1, int arg2) {
+
+        }
+
+        @Override
+        public void onPageSelected(int arg0) {
+            //what.getAndSet(arg0);
+            for (int i = 0; i < backImages.length; i++) {
+
+                if (arg0 == i) {
+                    backImages[i]
+                            .setBackgroundResource(R.mipmap.banner_dian_focus);
+                    newsTitle.setText(data.get(arg0).getTitle());
+                }else {
+                    backImages[arg0]
+                            .setBackgroundResource(R.mipmap.banner_dian_blur);
+                }
+            }
+
         }
 
     }
