@@ -66,7 +66,7 @@ public class DemoMainActivity extends BaseActivity {
         mDrawerToggle.syncState();
         mDrawerLayout.setDrawerListener(mDrawerToggle);
         menuList = (ListView) findViewById(R.id.menu_list);
-        adapter = new NavigationMenuAdapter(this, menuData);
+        adapter = new NavigationMenuAdapter(this, menuData,R.layout.navigation_menu_item);
         menuList.setAdapter(adapter);
         menuList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
