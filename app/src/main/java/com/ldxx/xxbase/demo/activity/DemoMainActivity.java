@@ -16,7 +16,7 @@ import com.ldxx.xxbase.R;
 import com.ldxx.xxbase.activity.BaseActivity;
 import com.ldxx.xxbase.demo.adapter.NavigationMenuAdapter;
 import com.ldxx.xxbase.demo.bean.MenuInfo;
-import com.ldxx.xxbase.demo.fragment.DetailsFragment;
+import com.ldxx.xxbase.demo.fragment.FragmentDemoNewViews;
 import com.ldxx.xxbase.demo.fragment.HomeFragment;
 import com.ldxx.xxbase.demo.fragment.ViewWidthHeightFragment;
 import com.ldxx.xxbase.utils.XXToast;
@@ -112,7 +112,7 @@ public class DemoMainActivity extends BaseActivity {
     private List<MenuInfo> getMenuData() {
         List<MenuInfo> list = new ArrayList<>();
         list.add(new MenuInfo(R.string.title_home, R.mipmap.menu_home, HomeFragment.newInstance()));
-        list.add(new MenuInfo(R.string.app_name,R.mipmap.menu_home, new DetailsFragment()));
+        list.add(new MenuInfo(R.string.app_name,R.mipmap.menu_home, new FragmentDemoNewViews()));
         list.add(new MenuInfo(R.string.title_img,R.mipmap.menu_home,new ViewWidthHeightFragment()));
         return list;
     }

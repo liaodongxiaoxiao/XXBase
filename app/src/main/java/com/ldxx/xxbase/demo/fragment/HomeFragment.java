@@ -22,6 +22,7 @@ import com.ldxx.xxbase.R;
 import com.ldxx.xxbase.common.BitmapCache;
 import com.ldxx.xxbase.demo.app.XXDemoApplication;
 import com.ldxx.xxbase.demo.bean.NewsInfo;
+import com.ldxx.xxbase.utils.XXLog;
 import com.ldxx.xxbase.utils.XXToast;
 import com.lidroid.xutils.DbUtils;
 import com.lidroid.xutils.db.sqlite.Selector;
@@ -34,6 +35,8 @@ import java.util.List;
  *
  */
 public class HomeFragment extends Fragment {
+    private String TAG = this.getClass().getSimpleName();
+
     public static final String LOAD_DATA_ACTION = "com.ldxx.xxbase.demo.fragment.HomeFragment.loadData";
     private DataLoadedReceiver receiver;
     private ViewPager viewPager;
@@ -70,15 +73,7 @@ public class HomeFragment extends Fragment {
         RequestQueue mQueue = Volley.newRequestQueue(getActivity());
         mImageLoader = new ImageLoader(mQueue, new BitmapCache());
 
-        ImageView imageView;
 
-        for (int i = 0; i < 5; i++) {
-            imageView = new ImageView(getActivity());
-            imgS[i] = imageView;
-            imageView.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
-
-
-        }
         //加载本地数据
         loadData();
 
@@ -106,10 +101,13 @@ public class HomeFragment extends Fragment {
         viewPager.setOnPageChangeListener(new GuidePageChangeListener());
         group = (LinearLayout) v.findViewById(R.id.viewGroup);
         ImageView b;
-        for (int i=0;i<data.size();i++){
+        ImageView imageView;
+        ViewGroup.LayoutParams params;
+        for (int i = 0; i < data.size(); i++) {
             b = new ImageView(getActivity());
-            b.setLayoutParams(new ViewGroup.LayoutParams(20, 20));
-            b.setPadding(5, 5, 5, 5);
+            b.setLayoutParams(new ViewGroup.LayoutParams(30, 30));
+            b.setScaleType(ImageView.ScaleType.FIT_CENTER);
+            b.setPadding(8, 8, 8, 8);
             backImages[i] = b;
             if (i == 0) {
                 backImages[i]
@@ -119,10 +117,21 @@ public class HomeFragment extends Fragment {
                         .setBackgroundResource(R.mipmap.banner_dian_blur);
             }
             group.addView(backImages[i]);
+
+            imageView = new ImageView(getActivity());
+            imgS[i] = imageView;
+            imageView.setScaleType(ImageView.ScaleType.FIT_CENTER);
+            params = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
+            imageView.setLayoutParams(params);
         }
+
         newsTitle = (TextView) v.findViewById(R.id.news_title);
         viewPager.setCurrentItem(0);
-        newsTitle.setText(data.get(0).getTitle());
+        ImageView imageV = imgS[0];
+        listener = ImageLoader.getImageListener(imageV, android.R.drawable.ic_menu_rotate, android.R.drawable.ic_delete);
+        NewsInfo news = data.get(0);
+        mImageLoader.get(news.getImage_src(), listener);
+        newsTitle.setText(news.getTitle());
         return v;
     }
 
@@ -170,12 +179,8 @@ public class HomeFragment extends Fragment {
         @Override
         public Object instantiateItem(View container, int position) {
             ImageView imageView = imgS[position];
-            listener = ImageLoader.getImageListener(imageView, android.R.drawable.ic_menu_rotate, android.R.drawable.ic_delete);
-            NewsInfo news = data.get(position);
-            mImageLoader.get(news.getImage_src(), listener);
             ((ViewPager) container).addView(imageView, 0);
-            newsTitle.setText(news.getTitle());
-            return imgS[position];
+            return imageView;
         }
 
     }
@@ -194,18 +199,24 @@ public class HomeFragment extends Fragment {
 
         @Override
         public void onPageSelected(int arg0) {
-            //what.getAndSet(arg0);
-            for (int i = 0; i < backImages.length; i++) {
 
+            ImageView img;
+            for (int i = 0; i < backImages.length; i++) {
+                img = backImages[i];
                 if (arg0 == i) {
-                    backImages[i]
-                            .setBackgroundResource(R.mipmap.banner_dian_focus);
-                    newsTitle.setText(data.get(arg0).getTitle());
-                }else {
-                    backImages[arg0]
-                            .setBackgroundResource(R.mipmap.banner_dian_blur);
+                    img.setBackgroundResource(R.mipmap.banner_dian_focus);
+
+                } else {
+                    img.setBackgroundResource(R.mipmap.banner_dian_blur);
                 }
             }
+
+            ImageView imageView = imgS[arg0];
+            listener = ImageLoader.getImageListener(imageView, android.R.drawable.ic_menu_rotate, android.R.drawable.ic_delete);
+            NewsInfo news = data.get(arg0);
+            mImageLoader.get(news.getImage_src(), listener);
+
+            newsTitle.setText(news.getTitle());
 
         }
 

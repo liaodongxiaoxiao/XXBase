@@ -15,4 +15,7 @@
     <string name="welcome_to">欢迎来到这里...</string>
     <string name="load_data_succes">数据加载成功...</string>
     <string name="title_img">Image WH</string>
+    <string name="btn_two">Button Two</string>
+    <string name="btn_one">Button One</string>
+    <string name="btn_three">Button Three</string>
 </resources>
