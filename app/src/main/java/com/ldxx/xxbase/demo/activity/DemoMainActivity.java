@@ -112,8 +112,8 @@ public class DemoMainActivity extends BaseActivity {
     private List<MenuInfo> getMenuData() {
         List<MenuInfo> list = new ArrayList<>();
         list.add(new MenuInfo(R.string.title_home, R.mipmap.menu_home, HomeFragment.newInstance()));
-        list.add(new MenuInfo(R.string.app_name,R.mipmap.menu_home, new FragmentDemoNewViews()));
-        list.add(new MenuInfo(R.string.title_img,R.mipmap.menu_home,new ViewWidthHeightFragment()));
+        list.add(new MenuInfo(R.string.menu_new_views,R.mipmap.menu_home, new FragmentDemoNewViews()));
+        list.add(new MenuInfo(R.string.menu_custom_views,R.mipmap.menu_home,new ViewWidthHeightFragment()));
         return list;
     }
 

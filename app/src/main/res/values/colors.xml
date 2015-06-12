@@ -18,4 +18,6 @@
     <color name="btn_color3">#ffff478f</color>
     <color name="btn_color3_selected">#ffb83b5a</color>
 
+    <color name="text_hint_color">#FF707070</color>
+
 </resources>

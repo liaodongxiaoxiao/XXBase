@@ -18,4 +18,12 @@
     <string name="btn_two">Button Two</string>
     <string name="btn_one">Button One</string>
     <string name="btn_three">Button Three</string>
+
+    <string name="menu_new_views">新控件</string>
+    <string name="menu_custom_views">自定义控件</string>
+    <string name="a_d_t_textinputlayout">TextInputLayout</string>
+    <string name="title_activity_demo_custom_view">DemoCustomViewActivity</string>
+    <string name="demo_menu_kind">全部分类</string>
+    <string name="demo_menu_shop">全部商家</string>
+    <string name="demo_menu_order">默认排序</string>
 </resources>

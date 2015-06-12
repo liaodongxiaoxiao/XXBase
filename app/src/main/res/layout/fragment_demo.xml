@@ -1,8 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+    xmlns:xx="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <com.ldxx.xxbase.view.DropDownMenuView
+            android:id="@+id/demo_menu_kind"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            xx:default_arrow_icon="@mipmap/arrow_down"
+            xx:selected_arrow_icon="@mipmap/arrow_up"
+            xx:title="@string/demo_menu_kind" />
+
+        <com.ldxx.xxbase.view.DropDownMenuView
+            android:id="@+id/demo_menu_shop"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            xx:default_arrow_icon="@mipmap/arrow_down"
+            xx:selected_arrow_icon="@mipmap/arrow_up"
+            xx:title="@string/demo_menu_shop" />
+
+        <com.ldxx.xxbase.view.DropDownMenuView
+            android:id="@+id/demo_menu_order"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            xx:default_arrow_icon="@mipmap/arrow_down"
+            xx:selected_arrow_icon="@mipmap/arrow_up"
+            xx:title="@string/demo_menu_order" />
+    </LinearLayout>
 
     <ImageView
         android:id="@+id/demo_img"
@@ -10,5 +46,39 @@
         android:layout_height="200dp"
         android:contentDescription="@string/abc_action_bar_home_description"
         android:src="@mipmap/mantis_logo" />
+
+    <com.ldxx.xxbase.view.XXBallView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:padding="10dp"
+        xx:ball_type="blue"
+        xx:num="07"
+        xx:text_size="12sp" />
+
+    <com.ldxx.xxbase.view.XXBallView
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:padding="10dp"
+        xx:ball_type="blue"
+        xx:checked="true"
+        xx:num="07"
+        xx:text_size="18sp" />
+
+    <com.ldxx.xxbase.view.XXBallView
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:padding="10dp"
+        xx:ball_type="red"
+        xx:num="07"
+        xx:text_size="18sp" />
+
+    <com.ldxx.xxbase.view.XXBallView
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:padding="10dp"
+        xx:ball_type="red"
+        xx:checked="true"
+        xx:num="27"
+        xx:text_size="18sp" />
 
 </LinearLayout>

@@ -14,6 +14,8 @@ import com.ldxx.xxbase.R;
 import com.ldxx.xxbase.adapter.XXBaseAdapter;
 import com.ldxx.xxbase.bean.XXViewHolder;
 import com.ldxx.xxbase.demo.activity.DemoAppBarLayoutActivity;
+import com.ldxx.xxbase.demo.activity.DemoCustomViewActivity;
+import com.ldxx.xxbase.demo.activity.DemoTextInputLayoutActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -47,8 +49,8 @@ public class FragmentDemoNewViews extends Fragment {
 
     private void initData() {
         data.add(new Beans("AppBarLayout", "【新闻详情】", DemoAppBarLayoutActivity.class));
-        data.add(new Beans("AppBarLayout", "【新闻详情】", DemoAppBarLayoutActivity.class));
-        data.add(new Beans("AppBarLayout", "【新闻详情】", DemoAppBarLayoutActivity.class));
+        data.add(new Beans("TextInputLayout", "【吼吼】", DemoTextInputLayoutActivity.class));
+        data.add(new Beans("自定义控件", "【各种自定义控件】", DemoCustomViewActivity.class));
         data.add(new Beans("AppBarLayout", "【新闻详情】", DemoAppBarLayoutActivity.class));
         data.add(new Beans("AppBarLayout", "【新闻详情】", DemoAppBarLayoutActivity.class));
     }

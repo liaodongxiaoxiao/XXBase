@@ -38,8 +38,12 @@
             android:name=".demo.activity.DemoMainActivity"
             android:label="@string/title_activity_welcome" >
         </activity>
-
         <activity android:name=".demo.activity.DemoAppBarLayoutActivity" />
+        <activity android:name=".demo.activity.DemoTextInputLayoutActivity" />
+        <activity
+            android:name=".demo.activity.DemoCustomViewActivity"
+            android:label="@string/title_activity_demo_custom_view" >
+        </activity>
     </application>
 
 </manifest>
