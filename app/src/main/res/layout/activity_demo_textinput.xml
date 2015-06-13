@@ -23,6 +23,6 @@
             android:layout_height="wrap_content"
             android:textColor="@color/color_primary_dark"
             android:textColorHint="@color/text_hint_color"
-            android:hint="请输入要查询的期次" />
+            android:hint="@string/s_hint_query" />
     </android.support.design.widget.TextInputLayout>
 </LinearLayout>

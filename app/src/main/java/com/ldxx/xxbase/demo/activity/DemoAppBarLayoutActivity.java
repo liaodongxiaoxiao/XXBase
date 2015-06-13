@@ -7,7 +7,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ImageView;
 
-import com.ldxx.xxbase.R;
+import com.ldxx.xxbase.demo.R;
 import com.ldxx.xxbase.activity.BaseActivity;
 
 /**

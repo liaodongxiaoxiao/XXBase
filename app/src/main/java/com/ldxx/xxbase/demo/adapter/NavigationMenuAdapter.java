@@ -2,7 +2,7 @@ package com.ldxx.xxbase.demo.adapter;
 
 import android.content.Context;
 
-import com.ldxx.xxbase.R;
+import com.ldxx.xxbase.demo.R;
 import com.ldxx.xxbase.adapter.XXBaseAdapter;
 import com.ldxx.xxbase.bean.XXViewHolder;
 import com.ldxx.xxbase.demo.bean.MenuInfo;

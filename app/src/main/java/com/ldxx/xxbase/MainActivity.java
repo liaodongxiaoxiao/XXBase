@@ -14,6 +14,7 @@ import com.ldxx.xxbase.activity.BaseActivity;
 import com.ldxx.xxbase.demo.activity.DemoBActivity;
 import com.ldxx.xxbase.demo.adapter.ColorAdapter;
 import com.ldxx.xxbase.utils.CommonUtils;
+import com.ldxx.xxbase.demo.R;
 
 import java.util.ArrayList;
 import java.util.List;

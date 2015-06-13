@@ -1,11 +1,11 @@
 package com.ldxx.xxbase.utils;
 
+import android.content.Context;
+import android.content.SharedPreferences;
+
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.Map;
-
-import android.content.Context;
-import android.content.SharedPreferences;
 
 /**
  * Created by WANGZHUO on 2015/4/15.

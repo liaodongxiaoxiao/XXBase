@@ -12,7 +12,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
-import com.ldxx.xxbase.R;
+import com.ldxx.xxbase.demo.R;
 import com.ldxx.xxbase.activity.BaseActivity;
 import com.ldxx.xxbase.demo.adapter.NavigationMenuAdapter;
 import com.ldxx.xxbase.demo.bean.MenuInfo;

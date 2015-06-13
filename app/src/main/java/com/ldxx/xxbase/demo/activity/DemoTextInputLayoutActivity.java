@@ -9,7 +9,7 @@ import android.text.TextWatcher;
 import android.view.MenuItem;
 import android.widget.EditText;
 
-import com.ldxx.xxbase.R;
+import com.ldxx.xxbase.demo.R;
 import com.ldxx.xxbase.activity.BaseActivity;
 
 /**

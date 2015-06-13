@@ -6,7 +6,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import com.ldxx.xxbase.R;
+import com.ldxx.xxbase.demo.R;
 import com.ldxx.xxbase.activity.BaseActivity;
 
 public class DemoCustomViewActivity extends BaseActivity {

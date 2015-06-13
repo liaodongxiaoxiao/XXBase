@@ -12,8 +12,8 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="drawer_open">打开</string>
     <string name="title_activity_welcome">WelcomeActivity</string>
-    <string name="welcome_to">欢迎来到这里...</string>
-    <string name="load_data_succes">数据加载成功...</string>
+    <string name="welcome_to">欢迎来到这里&#8230;, &#8230;</string>
+    <string name="load_data_succes">数据加载成功&#8230;, &#8230;</string>
     <string name="title_img">Image WH</string>
     <string name="btn_two">Button Two</string>
     <string name="btn_one">Button One</string>
@@ -26,4 +26,5 @@
     <string name="demo_menu_kind">全部分类</string>
     <string name="demo_menu_shop">全部商家</string>
     <string name="demo_menu_order">默认排序</string>
+    <string name="s_hint_query">请输入要查询的期次</string>
 </resources>

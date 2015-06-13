@@ -5,10 +5,8 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 
-import com.ldxx.xxbase.R;
-import com.ldxx.xxbase.utils.XXLog;
+import com.ldxx.xxbase.demo.R;
 import com.ldxx.xxbase.view.DropDownMenuData;
 import com.ldxx.xxbase.view.DropDownMenuView;
 

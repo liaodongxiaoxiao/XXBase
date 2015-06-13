@@ -10,7 +10,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.GridView;
 
-import com.ldxx.xxbase.R;
+import com.ldxx.xxbase.demo.R;
 import com.ldxx.xxbase.adapter.XXBaseAdapter;
 import com.ldxx.xxbase.bean.XXViewHolder;
 import com.ldxx.xxbase.demo.activity.DemoAppBarLayoutActivity;

@@ -6,12 +6,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.ldxx.xxbase.R;
-import com.ldxx.xxbase.view.DropDownMenuData;
+import com.ldxx.xxbase.demo.R;
 import com.ldxx.xxbase.view.DropDownMenuView;
-
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Created by WangZhuo on 2015/5/7.

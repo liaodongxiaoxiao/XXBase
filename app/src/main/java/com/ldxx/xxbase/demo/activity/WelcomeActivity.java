@@ -8,11 +8,12 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import com.ldxx.xxbase.R;
+import com.ldxx.xxbase.demo.R;
 import com.ldxx.xxbase.demo.service.LoadDataIntentService;
 
 
 public class WelcomeActivity extends ActionBarActivity {
+    private JumpHandler handler = new JumpHandler();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,17 +21,18 @@ public class WelcomeActivity extends ActionBarActivity {
         setContentView(R.layout.activity_welcome);
         //启动加载数据的service
         startService(new Intent(WelcomeActivity.this, LoadDataIntentService.class));
-        JumpHandler handler = new JumpHandler();
-        handler.sendEmptyMessageDelayed(1,3000);
+
+        handler.sendEmptyMessageDelayed(1, 3000);
     }
 
     class JumpHandler extends Handler {
         @Override
         public void handleMessage(Message msg) {
-            startActivity(new Intent(WelcomeActivity.this,DemoMainActivity.class));
+            startActivity(new Intent(WelcomeActivity.this, DemoMainActivity.class));
             finish();
         }
     }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -51,5 +53,11 @@ public class WelcomeActivity extends ActionBarActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        handler.removeCallbacksAndMessages(null);
     }
 }

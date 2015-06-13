@@ -11,6 +11,7 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListPopupWindow;
+import android.widget.PopupWindow;
 
 import com.ldxx.xxbase.R;
 import com.ldxx.xxbase.utils.XXDensityUtils;
@@ -74,12 +75,7 @@ public class DropDownMenuView extends View {
         loadAttributes(attrs, defStyleAttr);
         initPaint();
 
-        popupWindow = new ListPopupWindow(this.context);
-        adapter = new DropDownMenuAdapter(this.context, data, R.layout.dropdownmenu_select_item);
-        popupWindow.setAdapter(adapter);
-        popupWindow.setWidth(XXScreenUtils.getScreenWidth(context));
-        popupWindow.setHeight(ViewGroup.LayoutParams.WRAP_CONTENT);
-        popupWindow.setModal(true);
+        initPoPWindow();
         //set listener
         this.setOnClickListener(new OnClickListener() {
             @Override
@@ -92,6 +88,22 @@ public class DropDownMenuView extends View {
                 } else {
                     popupWindow.dismiss();
                 }
+            }
+        });
+    }
+
+    private void initPoPWindow() {
+        popupWindow = new ListPopupWindow(this.context);
+        adapter = new DropDownMenuAdapter(this.context, data, R.layout.dropdownmenu_select_item);
+        popupWindow.setAdapter(adapter);
+        popupWindow.setWidth(XXScreenUtils.getScreenWidth(context));
+        popupWindow.setHeight(ViewGroup.LayoutParams.WRAP_CONTENT);
+        popupWindow.setModal(true);
+        popupWindow.setOnDismissListener(new PopupWindow.OnDismissListener() {
+            @Override
+            public void onDismiss() {
+                selected = false;
+                invalidate();
             }
         });
     }

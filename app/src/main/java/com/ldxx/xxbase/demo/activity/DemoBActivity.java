@@ -5,7 +5,7 @@ import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import com.ldxx.xxbase.R;
+import com.ldxx.xxbase.demo.R;
 
 public class DemoBActivity extends ActionBarActivity {
 

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.ldxx.xxbase" >
+    package="com.ldxx.xxbase.demo" >
 
     <!-- 请求网络权限 -->
     <uses-permission android:name="android.permission.INTERNET" />
@@ -14,7 +14,7 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name=".demo.activity.WelcomeActivity"
+            android:name=".activity.WelcomeActivity"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -23,25 +23,25 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".demo.activity.DemoBActivity"
+            android:name=".activity.DemoBActivity"
             android:label="@string/title_activity_demo_b" />
         <activity
-            android:name=".MainActivity"
+            android:name="com.ldxx.xxbase.MainActivity"
             android:label="@string/title_activity_demo_main" />
 
         <service
-            android:name=".demo.service.LoadDataIntentService"
+            android:name=".service.LoadDataIntentService"
             android:exported="false" >
         </service>
 
         <activity
-            android:name=".demo.activity.DemoMainActivity"
+            android:name=".activity.DemoMainActivity"
             android:label="@string/title_activity_welcome" >
         </activity>
-        <activity android:name=".demo.activity.DemoAppBarLayoutActivity" />
-        <activity android:name=".demo.activity.DemoTextInputLayoutActivity" />
+        <activity android:name=".activity.DemoAppBarLayoutActivity" />
+        <activity android:name=".activity.DemoTextInputLayoutActivity" />
         <activity
-            android:name=".demo.activity.DemoCustomViewActivity"
+            android:name=".activity.DemoCustomViewActivity"
             android:label="@string/title_activity_demo_custom_view" >
         </activity>
     </application>

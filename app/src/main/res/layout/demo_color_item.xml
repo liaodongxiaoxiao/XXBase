@@ -2,12 +2,12 @@
 <com.ldxx.xxbase.view.SquareLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+
     <TextView
         android:id="@+id/demo_color_item"
         android:layout_width="match_parent"
-        android:textSize="25dp"
-        android:textColor="@color/color_accent"
-        android:text="222"
+        android:layout_height="match_parent"
         android:gravity="center"
-        android:layout_height="match_parent" />
+        android:textColor="@color/color_accent"
+        android:textSize="25sp" />
 </com.ldxx.xxbase.view.SquareLayout>
