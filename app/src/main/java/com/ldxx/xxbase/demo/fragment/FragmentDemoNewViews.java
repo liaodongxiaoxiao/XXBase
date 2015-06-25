@@ -41,7 +41,12 @@ public class FragmentDemoNewViews extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Beans beans = adapter.getItem(position);
-                getActivity().startActivity(new Intent(getActivity(), beans.cc));
+                if(beans.getCc()!=null){
+                    getActivity().startActivity(new Intent(getActivity(), beans.cc));
+                }else {
+
+                }
+
             }
         });
         return view;
@@ -52,7 +57,7 @@ public class FragmentDemoNewViews extends Fragment {
         data.add(new Beans("TextInputLayout", "【吼吼】", DemoTextInputLayoutActivity.class));
         data.add(new Beans("自定义控件", "【各种自定义控件】", DemoCustomViewActivity.class));
         data.add(new Beans("AppBarLayout", "【新闻详情】", DemoAppBarLayoutActivity.class));
-        data.add(new Beans("AppBarLayout", "【新闻详情】", DemoAppBarLayoutActivity.class));
+        data.add(new Beans("AppBarLayout", "【新闻详情】",null));
     }
 
     class Beans {

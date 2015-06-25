@@ -143,7 +143,7 @@ public class HomeFragment extends Fragment {
 
         @Override
         public void onReceive(Context context, Intent intent) {
-            XXToast.showShort(getActivity(), R.string.load_data_succes);
+            XXToast.showShort(getActivity(), R.string.load_data_succees);
         }
     }
 

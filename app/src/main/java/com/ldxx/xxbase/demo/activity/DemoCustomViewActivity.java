@@ -5,16 +5,55 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ArrayAdapter;
+import android.widget.Spinner;
 
 import com.ldxx.xxbase.demo.R;
 import com.ldxx.xxbase.activity.BaseActivity;
+import com.ldxx.xxbase.view.DropDownMenuData;
+import com.ldxx.xxbase.view.DropDownMenuView;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class DemoCustomViewActivity extends BaseActivity {
+    private DropDownMenuView menu1;
+    private DropDownMenuView menu2;
+    private Spinner spinner1;
+    private Spinner spinner2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_demo_custom_view);
+
+        menu1 = (DropDownMenuView) findViewById(R.id.menu1);
+        menu2 = (DropDownMenuView) findViewById(R.id.menu2);
+        spinner1 = (Spinner) findViewById(R.id.spinner1);
+        spinner2 = (Spinner) findViewById(R.id.spinner2);
+        // 建立数据源
+        String[] mItems1 = {"城市", "沈阳", "大连", "鞍山"};
+        // 建立Adapter并且绑定数据源
+        ArrayAdapter<String> adapter1 = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, mItems1);
+        spinner1.setAdapter(adapter1);
+
+        String[] mItems2 = {"城市", "沈阳", "大连", "鞍山"};
+        // 建立Adapter并且绑定数据源
+        ArrayAdapter<String> adapter2 = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, mItems2);
+        spinner2.setAdapter(adapter2);
+        List<DropDownMenuData> kind = new ArrayList<>();
+        kind.add(new DropDownMenuData("全部分类", "01"));
+        kind.add(new DropDownMenuData("中餐", "02"));
+        kind.add(new DropDownMenuData("西餐", "03"));
+        menu1.setData(kind);
+
+        List<DropDownMenuData> shop = new ArrayList<>();
+        shop.add(new DropDownMenuData("全部商家", "01"));
+        shop.add(new DropDownMenuData("四季面条", "02"));
+        shop.add(new DropDownMenuData("KFC", "03"));
+        shop.add(new DropDownMenuData("农家小炒", "04"));
+        shop.add(new DropDownMenuData("老四烧烤", "05"));
+        menu2.setData(shop);
         initActionBar();
     }
 

@@ -8,22 +8,48 @@
     <include layout="@layout/xx_common_actionbar" />
 
     <LinearLayout
-        android:layout_marginTop="20dp"
+        android:id="@+id/menu_layout"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_below="@id/common_actionbar"
+        android:layout_marginTop="20dp"
         android:orientation="horizontal">
 
-         <com.ldxx.xxbase.view.DropDownMenuView
+        <com.ldxx.xxbase.view.DropDownMenuView
+            android:id="@+id/menu1"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            xx:title="性别" />
+            xx:default_arrow_icon="@mipmap/arrow_down"
+            xx:menu_color="@color/xx_light_gray"
+            xx:menu_selected_color="@color/xx_write"
+            xx:selected_arrow_icon="@mipmap/arrow_up" />
 
         <com.ldxx.xxbase.view.DropDownMenuView
+            android:id="@+id/menu2"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            xx:title="销量" />
+            xx:default_arrow_icon="@mipmap/arrow_down"
+            xx:menu_color="@color/xx_light_gray"
+            xx:menu_selected_color="@color/xx_write"
+            xx:selected_arrow_icon="@mipmap/arrow_up" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/menu_layout"
+        android:orientation="horizontal">
+
+        <Spinner
+            android:id="@+id/spinner1"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content" />
+
+        <Spinner
+            android:id="@+id/spinner2"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content" />
     </LinearLayout>
 </RelativeLayout>

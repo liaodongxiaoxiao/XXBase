@@ -79,4 +79,8 @@ public class StringUtils {
         return sb.toString();
     }
 
+    public static boolean isEmptyTrimmed(String str) {
+        return str == null || str.toString().trim().isEmpty();
+
+    }
 }

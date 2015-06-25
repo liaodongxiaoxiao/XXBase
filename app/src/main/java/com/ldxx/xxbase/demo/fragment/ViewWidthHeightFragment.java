@@ -44,12 +44,12 @@ public class ViewWidthHeightFragment extends Fragment {
         shopMenu.setData(shop);
 
         List<DropDownMenuData> order = new ArrayList<>();
-        shop.add(new DropDownMenuData("默认排序", ""));
-        shop.add(new DropDownMenuData("按价格", ""));
-        shop.add(new DropDownMenuData("按订单量", ""));
-        shop.add(new DropDownMenuData("按好评", ""));
+        order.add(new DropDownMenuData("默认排序", ""));
+        order.add(new DropDownMenuData("按价格", ""));
+        order.add(new DropDownMenuData("按订单量", ""));
+        order.add(new DropDownMenuData("按好评", ""));
         orderMenu.setData(order);
-
+        getActivity().getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
         return view;
     }
 }
