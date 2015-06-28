@@ -12,6 +12,7 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.BaseAdapter;
 import android.widget.ListPopupWindow;
 import android.widget.PopupWindow;
 
@@ -19,19 +20,15 @@ import com.ldxx.xxbase.R;
 import com.ldxx.xxbase.utils.XXDensityUtils;
 import com.ldxx.xxbase.utils.XXLog;
 import com.ldxx.xxbase.utils.XXScreenUtils;
-import com.ldxx.xxbase.view.adapter.DropDownMenuAdapter;
-
-import java.util.ArrayList;
-import java.util.List;
 
 /**
- * Created by WangZhuo on 2015/6/9.
+ * Created by ldxx on 2015/6/9.
  */
-public class DropDownMenuView extends View {
+public class DropDownMenuView<T extends DropDownMenuData> extends View {
     private String TAG = this.getClass().getSimpleName();
 
     //menu
-    private DropDownMenuData checkted;
+    private T checked;
 
     private int selectedIndex = 0;
     //
@@ -51,15 +48,15 @@ public class DropDownMenuView extends View {
     private int menuSelectedColor;
 
     //menu
-    private DropDownMenuAdapter adapter;
+    private BaseAdapter adapter;
 
     private ListPopupWindow popupWindow;
-
-    private List<DropDownMenuData> data = new ArrayList<>();
 
     private Context context;
 
     private boolean selected = false;
+
+    private MenuSelectedListener listener;
 
     public DropDownMenuView(Context context) {
         super(context);
@@ -86,6 +83,9 @@ public class DropDownMenuView extends View {
 
     }
 
+    /**
+     * 设置事件监听
+     */
     private void addEventListener() {
         //this menu onClick
         this.setOnClickListener(new OnClickListener() {
@@ -93,7 +93,7 @@ public class DropDownMenuView extends View {
             public void onClick(View v) {
                 selected = !selected;
                 invalidate();
-                if (selected && adapter.getCount() > 0) {
+                if (selected && adapter != null && adapter.getCount() > 0) {
                     popupWindow.setAnchorView(v);
                     popupWindow.show();
                 } else {
@@ -114,37 +114,47 @@ public class DropDownMenuView extends View {
         popupWindow.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                checkted = data.get(position);
+                checked = (T) adapter.getItem(position);
                 selected = false;
                 popupWindow.dismiss();
                 invalidate();
+                if (listener != null) {
+                    listener.onMenuSelected(checked);
+                }
             }
         });
     }
 
+    /**
+     * 初始化pop window
+     */
     private void initPoPWindow() {
         popupWindow = new ListPopupWindow(this.context);
-        adapter = new DropDownMenuAdapter(this.context, data, R.layout.dropdownmenu_select_item);
-        popupWindow.setAdapter(adapter);
+        //adapter = new DropDownMenuAdapter(this.context, data, R.layout.dropdownmenu_select_item);
+        //popupWindow.setAdapter(adapter);
         popupWindow.setWidth(XXScreenUtils.getScreenWidth(context));
         popupWindow.setHeight(ViewGroup.LayoutParams.WRAP_CONTENT);
         Drawable drawable = context.getResources().getDrawable(R.drawable.dropdown_window_bg);
         popupWindow.setBackgroundDrawable(drawable);
-
+        //outside click
         popupWindow.setModal(true);
 
     }
 
-    public void setData(List<DropDownMenuData> data) {
-        this.data.clear();
-        this.data.addAll(data);
-        adapter.notifyDataSetChanged();
-        checkted = data.get(selectedIndex);
+    public void setAdapter(BaseAdapter adapter) {
+        //this.data.clear();
+        //this.data.addAll(data);
+        //adapter.notifyDataSetChanged();
+        this.adapter = adapter;
+        popupWindow.setAdapter(adapter);
+        if (adapter.getCount() > 0) {
+            checked = (T) adapter.getItem(selectedIndex);
+        }
         invalidate();
     }
 
     /**
-     *
+     * 初始化画笔
      */
     private void initPaint() {
         textPaint = new Paint();
@@ -174,8 +184,8 @@ public class DropDownMenuView extends View {
 
     @Override
     protected void onDraw(Canvas canvas) {
-        if (checkted != null) {
-            textPaint.getTextBounds(checkted.getKey(), 0, checkted.getKey().length(), textBound);
+        if (checked != null) {
+            textPaint.getTextBounds(checked.getKey(), 0, checked.getKey().length(), textBound);
         }
         float x = (drawableWidth - textBound.width()) * 1f / 2;
         float y = (drawableHeight - textBound.height()) * 1f / 2;
@@ -184,13 +194,13 @@ public class DropDownMenuView extends View {
 
         //canvas.drawCircle(x,y,3f,textPaint);
         //canvas.drawColor(Color.YELLOW);
-        if(selected){
+        if (selected) {
             canvas.drawColor(menuSelectedColor);
-        }else {
+        } else {
             canvas.drawColor(menuColor);
         }
-        if(checkted!=null){
-            canvas.drawText(checkted.getKey(), getMeasuredWidth() / 2 - textBound.width() / 2, baseline, textPaint);
+        if (checked != null) {
+            canvas.drawText(checked.getKey(), getMeasuredWidth() / 2 - textBound.width() / 2, baseline, textPaint);
         }
 
         // canvas.drawText(title, x, y, textPaint);
@@ -206,7 +216,7 @@ public class DropDownMenuView extends View {
     }
 
     /**
-     * ��ȡxml�����õ�����ֵ
+     * 从xml中获取属性值
      *
      * @param attrs
      * @param defStyleAttr
@@ -224,8 +234,19 @@ public class DropDownMenuView extends View {
     }
 
 
+    /**
+     * 菜单选中的事件监听器
+     */
     public interface MenuSelectedListener {
-        void onMenuSelecte(DropDownMenuData menuData);
+        /**
+         * 返回选中项的对象
+         *
+         * @param menuData
+         */
+        void onMenuSelected(DropDownMenuData menuData);
     }
 
+    public void setMenuSelectedListener(MenuSelectedListener listener) {
+        this.listener = listener;
+    }
 }

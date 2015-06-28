@@ -7,11 +7,13 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import com.ldxx.xxbase.demo.R;
 import com.ldxx.xxbase.activity.BaseActivity;
 import com.ldxx.xxbase.view.DropDownMenuData;
 import com.ldxx.xxbase.view.DropDownMenuView;
+import com.ldxx.xxbase.view.adapter.DropDownMenuAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -45,7 +47,13 @@ public class DemoCustomViewActivity extends BaseActivity {
         kind.add(new DropDownMenuData("全部分类", "01"));
         kind.add(new DropDownMenuData("中餐", "02"));
         kind.add(new DropDownMenuData("西餐", "03"));
-        menu1.setData(kind);
+        menu1.setAdapter(new DropDownMenuAdapter(this, kind, R.layout.dropdownmenu_select_item));
+        menu1.setMenuSelectedListener(new DropDownMenuView.MenuSelectedListener() {
+            @Override
+            public void onMenuSelected(DropDownMenuData menuData) {
+                Toast.makeText(DemoCustomViewActivity.this, "选中：" + menuData.getKey() + " 值是：" + menuData.getValue() , Toast.LENGTH_SHORT).show();
+            }
+        });
 
         List<DropDownMenuData> shop = new ArrayList<>();
         shop.add(new DropDownMenuData("全部商家", "01"));
@@ -53,7 +61,8 @@ public class DemoCustomViewActivity extends BaseActivity {
         shop.add(new DropDownMenuData("KFC", "03"));
         shop.add(new DropDownMenuData("农家小炒", "04"));
         shop.add(new DropDownMenuData("老四烧烤", "05"));
-        menu2.setData(shop);
+        menu2.setAdapter(new DropDownMenuAdapter(this, shop, R.layout.dropdownmenu_select_item));
+
         initActionBar();
     }
 
