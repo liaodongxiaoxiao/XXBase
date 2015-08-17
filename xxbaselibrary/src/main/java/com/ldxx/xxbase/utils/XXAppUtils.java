@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
+import android.util.Log;
 
 import java.io.File;
 
@@ -53,6 +54,10 @@ public class XXAppUtils {
 
     public static File getCatchPath(Context context){
         return context.getExternalCacheDir();
+    }
+
+    public static String getPackageName(Context context){
+       return context.getPackageName();
     }
 
 }

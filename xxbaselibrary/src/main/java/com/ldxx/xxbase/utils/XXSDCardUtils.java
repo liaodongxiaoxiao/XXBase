@@ -15,7 +15,6 @@ public class XXSDCardUtils {
     }
 
     /**
-     *
      * @return
      */
     public static boolean isSDCardEnable() {
@@ -25,7 +24,6 @@ public class XXSDCardUtils {
     }
 
     /**
-     *
      * @return
      */
     public static String getSDCardPath() {
@@ -34,7 +32,6 @@ public class XXSDCardUtils {
     }
 
     /**
-     *
      * @return
      */
     public static long getSDCardAllSize() {
@@ -50,7 +47,6 @@ public class XXSDCardUtils {
     }
 
     /**
-     *
      * @param filePath
      * @return
      */
@@ -67,7 +63,6 @@ public class XXSDCardUtils {
     }
 
     /**
-     *
      * @return
      */
     public static String getRootDirectoryPath() {

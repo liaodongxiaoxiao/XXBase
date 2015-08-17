@@ -10,12 +10,17 @@
         <item name="colorPrimaryDark">@color/color_primary_dark</item>
         <item name="colorAccent">@color/color_primary_dark</item>
         <item name="android:textColorPrimary">@color/color_accent</item>
-
+        <!--全局字体颜色 -->
+        <!--<item name="android:textColor">@color/color_primary_dark</item>-->
+        <!-- Menu样式 -->
+        <item name="android:itemTextAppearance">@style/menuTextAppearance</item>
         <!--<item name="android:windowcontenttransitions">true</item>-->
         <item name="android:windowBackground">@color/window_background</item>
 
     </style>
 
-
+    <style name="menuTextAppearance" parent="@android:style/TextAppearance.Widget.IconMenu.Item">
+        <item name="android:textColor">@color/color_primary_dark</item>
+    </style>
 
 </resources>

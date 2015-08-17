@@ -9,7 +9,8 @@
     <string name="drawer_close">关闭</string>
 
 <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="hello_blank_fragment">文件服务器地址:</string>
+    <string name="host_default_value">192.168.1.11</string>
     <string name="drawer_open">打开</string>
     <string name="title_activity_welcome">WelcomeActivity</string>
     <string name="welcome_to">欢迎来到这里&#8230;</string>
@@ -30,4 +31,14 @@
     <string name="menu_db_demo">数据库</string>
     <string name="s_btn_init_data">初始化</string>
     <string name="s_btn_select_data">查询值</string>
+    <string name="download_file">下载文件</string>
+    <string name="download_single_thread">单线程下载</string>
+    <string name="download_multi_thread">多线程下载</string>
+    <string name="title_activity_recycler_view">RecyclerViewActivity</string>
+    <string name="hint_query">请输入要查询的东东</string>
+    <string name="list_view_filter">ListView数据过滤</string>
+    <string name="title_activity_resume_test1">ResumeTest1Activity</string>
+    <string name="set_value">set value</string>
+    <string name="next_activity">next Activity</string>
+    <string name="title_activity_resume_test2">ResumeTest2Activity</string>
 </resources>
