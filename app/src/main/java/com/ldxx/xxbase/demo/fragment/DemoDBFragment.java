@@ -54,7 +54,6 @@ public class DemoDBFragment extends Fragment {
         String[] createSql = {" create table a (id varchar(36) ,name text,type text, price double,cost real)",
                 "create table b (id varchar(36),type_value text,type_name text)"};
         xxdbHelper = new XXDBHelper(getActivity(), "data_test.db", 1, createSql, null);
-
         btn_init.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

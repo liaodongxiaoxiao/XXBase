@@ -5,14 +5,19 @@ import android.os.Handler;
 import android.os.Message;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
 import com.ldxx.xxbase.demo.R;
 import com.ldxx.xxbase.demo.service.LoadDataIntentService;
+import com.ldxx.xxbase.utils.XXAppUtils;
+import com.ldxx.xxbase.utils.XXDBUtils;
+import com.ldxx.xxbase.utils.XXLog;
 
 
 public class WelcomeActivity extends ActionBarActivity {
+    private String TAG =this.getClass().getSimpleName();
     private JumpHandler handler = new JumpHandler();
 
     @Override
@@ -21,8 +26,12 @@ public class WelcomeActivity extends ActionBarActivity {
         setContentView(R.layout.activity_welcome);
         //启动加载数据的service
         startService(new Intent(WelcomeActivity.this, LoadDataIntentService.class));
-
+        Log.e(TAG, "app name:" + XXAppUtils.getAppName(this));
+        Log.e(TAG, "version:" + XXAppUtils.getVersionName(this));
+        Log.e(TAG,"package name:"+XXAppUtils.getPackageName(this));
+        XXDBUtils.copyDBtoSDcard(this);
         handler.sendEmptyMessageDelayed(1, 3000);
+
     }
 
     class JumpHandler extends Handler {

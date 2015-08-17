@@ -22,9 +22,18 @@ android {
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile 'com.android.support:design:22.2.0'
+
+
     compile files('lib/xUtils-2.6.14.jar')
     compile files('lib/jsoup-1.8.2.jar')
     compile project(':xxbaselibrary')
     compile project(':xxlib')
-    compile files('libs/kwmusic-autosdk-v1.2 .jar')
+
+    //下拉刷新依赖它
+    compile 'com.nineoldandroids:library:2.4.0'
+    //下拉刷新库
+    compile 'cn.bingoogolapple:bga-refreshlayout:1.0.3@aar'
+
+    //facebook 图片缓存库
+    compile 'com.facebook.fresco:fresco:0.6.0+'
 }
