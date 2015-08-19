@@ -45,45 +45,43 @@
             xx:selected_arrow_icon="@mipmap/arrow_up" />
     </LinearLayout>
 
-    <ImageView
-        android:id="@+id/demo_img"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
-        android:contentDescription="@string/abc_action_bar_home_description"
-        android:src="@mipmap/mantis_logo" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
 
-    <com.ldxx.xxbase.view.XXBallView
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:padding="10dp"
-        xx:ball_type="blue"
-        xx:num="07"
-        xx:text_size="12sp" />
+        <com.ldxx.xxbase.view.XXBallView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:padding="10dp"
+            xx:ball_type="blue"
+            xx:num="07"
+            xx:text_size="12sp" />
 
-    <com.ldxx.xxbase.view.XXBallView
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:padding="10dp"
-        xx:ball_type="blue"
-        xx:checked="true"
-        xx:num="07"
-        xx:text_size="18sp" />
+        <com.ldxx.xxbase.view.XXBallView
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:padding="10dp"
+            xx:ball_type="blue"
+            xx:checked="true"
+            xx:num="07"
+            xx:text_size="18sp" />
 
-    <com.ldxx.xxbase.view.XXBallView
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:padding="10dp"
-        xx:ball_type="red"
-        xx:num="07"
-        xx:text_size="18sp" />
+        <com.ldxx.xxbase.view.XXBallView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:padding="10dp"
+            xx:ball_type="red"
+            xx:num="07"
+            xx:text_size="18sp" />
 
-    <com.ldxx.xxbase.view.XXBallView
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:padding="10dp"
-        xx:ball_type="red"
-        xx:checked="true"
-        xx:num="27"
-        xx:text_size="18sp" />
-
+        <com.ldxx.xxbase.view.XXBallView
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:padding="10dp"
+            xx:ball_type="red"
+            xx:checked="true"
+            xx:num="27"
+            xx:text_size="18sp" />
+    </LinearLayout>
 </LinearLayout>

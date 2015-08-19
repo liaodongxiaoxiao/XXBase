@@ -19,6 +19,7 @@ import com.ldxx.xxbase.demo.activity.DemoTextInputLayoutActivity;
 import com.ldxx.xxbase.demo.activity.ListFilterActivity;
 import com.ldxx.xxbase.demo.activity.RecyclerViewActivity;
 import com.ldxx.xxbase.demo.activity.ResumeTest1Activity;
+import com.ldxx.xxbase.demo.activity.VolleyActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -46,10 +47,9 @@ public class FragmentDemoNewViews extends Fragment {
                 Beans beans = adapter.getItem(position);
                 if(beans.getCc()!=null){
                     getActivity().startActivity(new Intent(getActivity(), beans.cc));
-                }else {
+                }/*else {
 
-                }
-
+                }*/
             }
         });
         return view;
@@ -62,6 +62,7 @@ public class FragmentDemoNewViews extends Fragment {
         data.add(new Beans("RecyclerView", "【新闻列表】", RecyclerViewActivity.class));
         data.add(new Beans("Listview filter","【ArrayAdapter 过滤】", ListFilterActivity.class));
         data.add(new Beans("Resume Test","【Resume】", ResumeTest1Activity.class));
+        data.add(new Beans("网络框架","【Volley的使用】", VolleyActivity.class));
         data.add(new Beans("AppBarLayout", "【新闻详情】",null));
     }
 

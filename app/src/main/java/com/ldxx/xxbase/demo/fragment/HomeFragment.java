@@ -17,6 +17,7 @@ import android.widget.TextView;
 
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.ImageLoader;
+import com.android.volley.toolbox.NetworkImageView;
 import com.android.volley.toolbox.Volley;
 import com.ldxx.xxbase.demo.R;
 import com.ldxx.xxbase.common.BitmapCache;
@@ -41,21 +42,19 @@ public class HomeFragment extends Fragment {
     private ViewPager viewPager;
     private List<NewsInfo> data = new ArrayList<>();
     private ImageLoader mImageLoader;
-    private ImageLoader.ImageListener listener;
     private TextView newsTitle;
     private LinearLayout group;
 
     //将图片装载到数组中
-    private ImageView[] imgS = new ImageView[5];
+    private NetworkImageView[] imgS = new NetworkImageView[5];
     private ImageView[] backImages = new ImageView[5];
 
 
     /**
-     * @return
+     * @return HomeFragment
      */
     public static HomeFragment newInstance() {
-        HomeFragment fragment = new HomeFragment();
-        return fragment;
+        return new HomeFragment();
     }
 
     public HomeFragment() {
@@ -69,10 +68,7 @@ public class HomeFragment extends Fragment {
         IntentFilter intentFilter = new IntentFilter(LOAD_DATA_ACTION);
         getActivity().registerReceiver(receiver, intentFilter);
 
-        RequestQueue mQueue = Volley.newRequestQueue(getActivity());
-        mImageLoader = new ImageLoader(mQueue, new BitmapCache());
-
-
+        mImageLoader = XXDemoApplication.getApplication().getImageLoader();
         //加载本地数据
         loadData();
 
@@ -97,10 +93,10 @@ public class HomeFragment extends Fragment {
         View v = inflater.inflate(R.layout.fragment_home, container, false);
         viewPager = (ViewPager) v.findViewById(R.id.main_pager);
         viewPager.setAdapter(new NewsPageAdapter());
-        viewPager.setOnPageChangeListener(new GuidePageChangeListener());
+        viewPager.addOnPageChangeListener(new GuidePageChangeListener());
         group = (LinearLayout) v.findViewById(R.id.viewGroup);
         ImageView b;
-        ImageView imageView;
+        NetworkImageView imageView;
         ViewGroup.LayoutParams params;
         for (int i = 0; i < data.size(); i++) {
             b = new ImageView(getActivity());
@@ -117,7 +113,7 @@ public class HomeFragment extends Fragment {
             }
             group.addView(backImages[i]);
 
-            imageView = new ImageView(getActivity());
+            imageView = new NetworkImageView(getActivity());
             imgS[i] = imageView;
             imageView.setScaleType(ImageView.ScaleType.FIT_CENTER);
             params = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
@@ -126,10 +122,15 @@ public class HomeFragment extends Fragment {
 
         newsTitle = (TextView) v.findViewById(R.id.news_title);
         viewPager.setCurrentItem(0);
-        ImageView imageV = imgS[0];
-        listener = ImageLoader.getImageListener(imageV, android.R.drawable.ic_menu_rotate, android.R.drawable.ic_delete);
+
+        //listener = ImageLoader.getImageListener(imageV, android.R.drawable.ic_menu_rotate, android.R.drawable.ic_delete);
         NewsInfo news = data.get(0);
-        mImageLoader.get(news.getImage_src(), listener);
+        NetworkImageView imageV = imgS[0];
+        imageV.setDefaultImageResId(android.R.drawable.ic_menu_rotate);
+        imageV.setErrorImageResId(android.R.drawable.ic_delete);
+        imageV.setImageUrl(news.getImage_src(), mImageLoader);
+
+        //mImageLoader.get(news.getImage_src(), listener);
         newsTitle.setText(news.getTitle());
         return v;
     }
@@ -177,7 +178,7 @@ public class HomeFragment extends Fragment {
          */
         @Override
         public Object instantiateItem(View container, int position) {
-            ImageView imageView = imgS[position];
+            NetworkImageView imageView = imgS[position];
             ((ViewPager) container).addView(imageView, 0);
             return imageView;
         }
@@ -209,11 +210,14 @@ public class HomeFragment extends Fragment {
                     img.setBackgroundResource(R.mipmap.banner_dian_blur);
                 }
             }
-
-            ImageView imageView = imgS[arg0];
-            listener = ImageLoader.getImageListener(imageView, android.R.drawable.ic_menu_rotate, android.R.drawable.ic_delete);
             NewsInfo news = data.get(arg0);
-            mImageLoader.get(news.getImage_src(), listener);
+            NetworkImageView imageView = imgS[arg0];
+
+            //listener = ImageLoader.getImageListener(imageView, android.R.drawable.ic_menu_rotate, android.R.drawable.ic_delete);
+            imageView.setDefaultImageResId(android.R.drawable.ic_menu_rotate);
+            imageView.setErrorImageResId(android.R.drawable.ic_delete);
+            imageView.setImageUrl(news.getImage_src(), mImageLoader);
+            //mImageLoader.get(news.getImage_src(), listener);
 
             newsTitle.setText(news.getTitle());
 
