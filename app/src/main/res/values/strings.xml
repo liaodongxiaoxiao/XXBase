@@ -20,7 +20,7 @@
     <string name="btn_one">Button One</string>
     <string name="btn_three">Button Three</string>
 
-    <string name="menu_new_views">新控件</string>
+    <string name="menu_new_views">控件+Demo</string>
     <string name="menu_custom_views">自定义控件</string>
     <string name="a_d_t_textinputlayout">TextInputLayout</string>
     <string name="title_activity_demo_custom_view">DemoCustomViewActivity</string>
@@ -41,4 +41,6 @@
     <string name="set_value">set value</string>
     <string name="next_activity">next Activity</string>
     <string name="title_activity_resume_test2">ResumeTest2Activity</string>
+    <string name="title_activity_volley">VolleyActivity</string>
+    <string name="btn_get_pm_value">获取沈阳天气信息</string>
 </resources>
